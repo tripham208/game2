@@ -28,6 +28,10 @@ public class MenuStart : MonoBehaviour
 
     public void About()
     {
-
+        SceneManager.LoadScene("about");
+    }
+    public void Back()
+    {
+        SceneManager.LoadScene("Main");
     }
 }
