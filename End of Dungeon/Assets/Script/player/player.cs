@@ -96,9 +96,11 @@ public class player : MonoBehaviour
 
     public void Death()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
         if (PlayerPrefs.GetInt("highscore") < gm.points) 
             PlayerPrefs.SetInt("highscore", gm.points);
+        SceneManager.LoadScene("end");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void Damage(int damage)//bị sát thương
     {
