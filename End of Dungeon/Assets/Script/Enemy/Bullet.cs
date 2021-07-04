@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float lifetime = 2;
+    public float lifetime = 2;//time tự hủy
 
 
     void Start()
@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     {
         if (col.isTrigger == false)
         {
-            if (col.CompareTag("Player"))
+            if (col.CompareTag("Player"))//chạm người choei gây sát thương
             {
                 col.SendMessageUpwards("Damage", 1);
             }

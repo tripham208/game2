@@ -7,7 +7,7 @@ public class movingflat : MonoBehaviour
     public float speed = 0.02f, changeDirection = -1;
 
     private Vector3 Move;
-    public menu pausep;
+    public menu pausep;//màn hình dừng
 
     // Use this for initialization
     private void Start()
@@ -30,7 +30,7 @@ public class movingflat : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnCollisionEnter2D(Collision2D col)//chạm vật cản đổi hướng
     {
         if (col.collider.CompareTag("ground"))
         {

@@ -15,9 +15,9 @@ public class trap_gai : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)// va chạm với vật thể
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player"))//chạm player gây sát thương và đẩy lùi
         {
             player.Damage(damage);
             player.Knockback(100f, player.transform.position);

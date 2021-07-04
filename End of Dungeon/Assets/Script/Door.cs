@@ -17,7 +17,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player"))// chạm người chơi sẽ lưu điểm /chuyển màn
         {
             savescore();
            // gm.Inputtext.text = ("Press E to enter");
@@ -45,7 +45,7 @@ public class Door : MonoBehaviour
         }*/
     }
 
-    void savescore()
+    void savescore()//lưu điểm
     {
         PlayerPrefs.SetInt("points", gm.points);
     }

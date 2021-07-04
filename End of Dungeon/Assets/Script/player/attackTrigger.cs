@@ -9,8 +9,10 @@ public class attackTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.isTrigger != true && col.CompareTag("Enemy"))
+        //tấn công vào quái sẽ gây sát thương cho quái
+        if (col.isTrigger != true && col.CompareTag("Enemy")) 
         {
+            //thực hiện phương thức ,chuyền biến
             col.SendMessageUpwards("Damage", dmg);
         }
     }

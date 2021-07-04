@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class gobphidao : MonoBehaviour
 {
@@ -23,22 +21,19 @@ public class gobphidao : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
-
     }
-    // Use this for initialization
-    void Start()
-    {
 
+    // Use this for initialization
+    private void Start()
+    {
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         anim.SetBool("attack", awake);
 
         RangeCheck();
-
-      
 
         if (curHealth < 0)
         {
@@ -46,8 +41,7 @@ public class gobphidao : MonoBehaviour
         }
     }
 
-
-    void RangeCheck()
+    private void RangeCheck()//kiểm tra khoảng cách với người chơi
     {
         distance = Vector2.Distance(transform.position, target.transform.position);
 
@@ -58,7 +52,7 @@ public class gobphidao : MonoBehaviour
             awake = false;
     }
 
-    public void Attack()
+    public void Attack()//tấn công
     {
         bullettimer += Time.deltaTime;
 
@@ -67,19 +61,17 @@ public class gobphidao : MonoBehaviour
             Vector2 direction = target.transform.position - transform.position;//trụ-người chơi
             direction.Normalize();//bình thường hóa
 
-            
-                GameObject bulletclone;
-                bulletclone = Instantiate(bullet, shootL.transform.position, shootL.transform.rotation) as GameObject;
-                bulletclone.GetComponent<Rigidbody2D>().velocity = direction * bulletspeed;
+            GameObject bulletclone;
+            bulletclone = Instantiate(bullet, shootL.transform.position, shootL.transform.rotation) as GameObject;
+            bulletclone.GetComponent<Rigidbody2D>().velocity = direction * bulletspeed;
 
-                bullettimer = 0;
-            
+            bullettimer = 0;
         }
     }
 
-    public void Damage(int dmg)
+    public void Damage(int dmg)//bị tấn công
     {
         curHealth -= dmg;
-        gameObject.GetComponent<Animation>().Play("redflash");
+        //gameObject.GetComponent<Animation>().Play("redflash");
     }
 }

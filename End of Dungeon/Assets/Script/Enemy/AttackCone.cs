@@ -17,7 +17,7 @@ public class AttackCone : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player"))//chạm khoảng cahcs tấn công
         {
             
                 turret.Attack();

@@ -16,6 +16,7 @@ public class MenuStart : MonoBehaviour
     {
         
     }
+    //button tương ứng
     public void GameStart()
     {
         SceneManager.LoadScene("lv1-jungle");
@@ -23,5 +24,10 @@ public class MenuStart : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void About()
+    {
+
     }
 }

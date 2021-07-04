@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
-    public float speed = 50f, maxspeed = 3, jumpPow = 400f, maxjump = 8;
+    public float speed = 50f, maxspeed = 3, jumpPow = 400f, maxjump = 8;//tốc độ ,tốc tối đa, lực nhảy
     public bool grounded = true, faceright = true, jump2 = false;
-
-    public int ourHealth;
-    public int maxhealth = 5;
+    //mặt đất/quay phải/ nhảy 2 lần
+    public int ourHealth;//máu hiện tại
+    public int maxhealth = 5;//máu tối đa
 
     public Rigidbody2D r2;
     public Animator anim;
@@ -41,7 +41,7 @@ public class player : MonoBehaviour
             }
             else
             {
-                if (jump2)
+                if (jump2)//nháy 2 lần lực nhay giảm
                 {
                     jump2 = false;
                     r2.velocity = new Vector2(r2.velocity.x, 0);
@@ -79,13 +79,13 @@ public class player : MonoBehaviour
         {
             r2.velocity = new Vector2(r2.velocity.x * 0.7f, r2.velocity.y);//giảm tốc độ khi trên mặt đất :y ko đổi ,v=70%5
         }
-        if (ourHealth <= 0)
+        if (ourHealth <= 0)//máu <0 chết
         {
             Death();
         }
     }
 
-    public void Flip()
+    public void Flip()//xoay chiều khi đi ngược lại
     {
         faceright = !faceright;
         Vector3 Scale;
@@ -100,36 +100,36 @@ public class player : MonoBehaviour
         if (PlayerPrefs.GetInt("highscore") < gm.points) 
             PlayerPrefs.SetInt("highscore", gm.points);
     }
-    public void Damage(int damage)
+    public void Damage(int damage)//bị sát thương
     {
         ourHealth -= damage;
         //gameObject.GetComponent<Animation>().Play("redflash");
     }
 
-    public void Knockback(float Knockpow, Vector2 Knockdir)
+    public void Knockback(float Knockpow, Vector2 Knockdir)//đẩy lùi
     {
         r2.velocity = new Vector2(0, 0);
         r2.AddForce(new Vector2(Knockdir.x * -50, Knockdir.y*0.15f * Knockpow));
     }
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)//khi cchạm vật thêr
     {
-        if (col.CompareTag("Coins"))
+        if (col.CompareTag("Coins"))//ăn vàng cộng điểm
         {
             
             Destroy(col.gameObject);
             gm.points += 1;
             sound.Playsound("coins");
         }
-        if (col.CompareTag("giay"))
+        if (col.CompareTag("giay"))//ăn giày tăng tốc
         {
 
             Destroy(col.gameObject);
             maxspeed = 6f;
             speed = 100f;
-            StartCoroutine(timecount(5));
+            StartCoroutine(timecount(5));//đếm time tác dụng
         }
     }
-    IEnumerator timecount(float time)
+    IEnumerator timecount(float time)//đếm time tác dụng
     {
         yield return new WaitForSeconds(time);
         maxspeed = 3f;

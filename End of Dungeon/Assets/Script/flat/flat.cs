@@ -21,7 +21,7 @@ public class flat : MonoBehaviour//lên xuống
         }
     }
 
-    private IEnumerator fall()
+    private IEnumerator fall()//rơi
     {
         yield return new WaitForSeconds(timedelay);
         r2.bodyType = RigidbodyType2D.Dynamic;

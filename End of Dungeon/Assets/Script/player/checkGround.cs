@@ -21,13 +21,14 @@ public class checkGround : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //đứng trên vật thể 
         if (collision.isTrigger == false)
             player.grounded = true;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        
+        //nếu đứng trên bậc di chuyển thì nhân vân di chuyển theo
         if (collision.isTrigger == false && collision.CompareTag("Movingflat"))
         {
             movep = player.transform.position;

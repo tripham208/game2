@@ -18,7 +18,7 @@ public class gamemaster : MonoBehaviour
     void Start()
     {
         Hightext.text = ("HighScore: " + PlayerPrefs.GetInt("highscore"));
-        highscore = PlayerPrefs.GetInt("highscore", 0);
+        highscore = PlayerPrefs.GetInt("highscore", 0);//điểm cao mặc định là 0
 
         if (PlayerPrefs.HasKey("points"))
         {
@@ -34,7 +34,7 @@ public class gamemaster : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()//cập nhật điểm
     {
         pointtext.text = ("Points: " + points);
     }

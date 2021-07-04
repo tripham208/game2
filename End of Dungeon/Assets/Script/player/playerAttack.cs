@@ -16,14 +16,14 @@ public class playerAttack : MonoBehaviour
     {
         anim = gameObject.GetComponent<Animator>();
         trigger.enabled = false;
-        sound = GameObject.FindGameObjectWithTag("sound").GetComponent<sounds>();
+        sound = GameObject.FindGameObjectWithTag("sound").GetComponent<sounds>();//get âm thanh tấn công
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z) && !Attacking)
+        if (Input.GetKeyDown(KeyCode.Z) && !Attacking)//phím z tấn công
         {
             Attacking = true;
             trigger.enabled = true;
@@ -31,9 +31,9 @@ public class playerAttack : MonoBehaviour
             sound.Playsound("sword");
         }
 
-        if (Attacking)
+        if (Attacking)//đang tấn công
         {
-            if (Attackdelay > 0)
+            if (Attackdelay > 0)//vẫn time chờ
             {
                 Attackdelay -= Time.deltaTime;
 

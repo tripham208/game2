@@ -11,8 +11,9 @@ public partial class SoundManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //lấy nguồn audio
         coins = Resources.Load<AudioClip>("Gamecoin");
-        swords = Resources.Load<AudioClip>("Sword");//nguon audio
+        swords = Resources.Load<AudioClip>("Sword");
         destroy = Resources.Load<AudioClip>("RockCrash");
         adisrc = GetComponent<AudioSource>();
         adisrc.clip = coins;
@@ -20,7 +21,7 @@ public partial class SoundManager : MonoBehaviour
 
     }
 
-    public void Playsound(string clip)
+    public void Playsound(string clip)//phát nhạc
     {
         switch (clip)
         {
