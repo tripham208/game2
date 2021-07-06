@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81410f9380450854c8e47eac81c1355f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curHealth: 100
+  curHealth: 10
   distance: 0
   wakerange: 7
   shootinterval: 1.7

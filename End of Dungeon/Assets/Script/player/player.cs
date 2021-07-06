@@ -121,6 +121,7 @@ public class player : MonoBehaviour
             Destroy(col.gameObject);
             gm.points += 1;
             sound.Playsound("coins");
+            PlayerPrefs.SetInt("points", gm.points);
         }
         if (col.CompareTag("giay"))//ăn giày tăng tốc
         {

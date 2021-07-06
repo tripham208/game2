@@ -5,7 +5,7 @@ using UnityEngine;
 public class attackTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int dmg = 20;
+    public int dmg = 200;
 
     private void OnTriggerEnter2D(Collider2D col)
     {

@@ -17,7 +17,7 @@ public class gamemaster : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Hightext.text = ("HighScore: " + PlayerPrefs.GetInt("highscore"));
+        Hightext.text = ("HighScore: " + PlayerPrefs.GetInt("highscore"));      //chỉnh hightscore
         highscore = PlayerPrefs.GetInt("highscore", 0);//điểm cao mặc định là 0
 
         if (PlayerPrefs.HasKey("points"))

@@ -47,6 +47,8 @@ public class Door : MonoBehaviour
 
     void savescore()//lưu điểm
     {
+        if (PlayerPrefs.GetInt("highscore") < gm.points)
+            PlayerPrefs.SetInt("highscore", gm.points);
         PlayerPrefs.SetInt("points", gm.points);
     }
 }
